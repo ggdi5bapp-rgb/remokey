@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remokey — Privacy Policy / Політика конфіденційності</title>
+<style>
+  body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px 18px 60px;color:#1b1d24;background:#fff}
+  h1{font-size:26px;margin-bottom:4px} h2{font-size:19px;margin-top:28px} .muted{color:#667} hr{margin:40px 0;border:0;border-top:1px solid #ddd}
+  nav a{margin-right:14px}
+</style>
+</head>
+<body>
+<nav><a href="#en">English</a><a href="#uk">Українська</a></nav>
+
+<section id="en">
+<h1>Remokey — Privacy Policy</h1>
+<p class="muted">Developer: GG-Di5B · Effective date: 19 November 2026</p>
+
+<p>Remokey (Android app <code>com.ggdi5b.remokey</code> and the companion Windows program Remokey.exe) lets you control your own computer from your phone. This policy explains what data the app handles.</p>
+
+<h2>We do not collect your data</h2>
+<p>The app has no accounts, no analytics, no advertising and no tracking. The developer does not run any server that receives your data and does not collect, store, sell or share personal information.</p>
+
+<h2>Data that stays between your phone and your PC</h2>
+<ul>
+<li><b>Connection settings</b> (PC address, port, the device key created during pairing, internet access key, language and display preferences) are stored only on your phone. The PIN is not stored. Backups of app data are disabled.</li>
+<li><b>Commands and content you choose to send</b> — mouse and keyboard input, text, clipboard, files, screen images, PC webcam images, PC sound, system metrics, “now playing” information — travel directly between your phone and your own PC over your local network.</li>
+<li><b>PC webcam</b> viewing is off by default and can only be enabled in the Windows program on the PC itself. While the phone is viewing, the PC shows a notification. Webcam images are not recorded or stored.</li>
+<li><b>Files</b> you download from your PC are saved to the phone's “Download/Remokey” folder. Files you send are saved on your PC.</li>
+</ul>
+
+<h2>How the connection is protected</h2>
+<ul>
+<li><b>Pairing:</b> the first time a phone connects, the PC asks for permission and shows a code that must match the code on the phone. Both devices compute the device key themselves (X25519 key exchange); neither the key nor the PIN is sent over the network. Paired phones can be revoked on the PC at any time (Remokey → Devices).</li>
+<li><b>Every request</b> is signed with the device key (HMAC-SHA256) and includes a timestamp and a one-time number, so intercepted requests cannot be forged or replayed. Repeated wrong PINs or signatures are blocked with increasing pauses.</li>
+<li><b>All traffic is encrypted</b> — on your home Wi-Fi and over the internet — with a separate encryption key derived from the device key (ChaCha20-Poly1305): commands and their parameters, replies, screen images, PC sound, webcam images and files. Files are transferred in parts, each part encrypted and numbered, so a damaged, altered, reordered or truncated transfer is detected. Someone on the same network sees only that the phone talks to the PC (addresses, times, amounts of data and the type of command), not the content.</li>
+<li><b>Files sent to the PC</b> are additionally checked with a SHA-256 checksum signed by the phone; if it does not match, the PC deletes the file.</li>
+<li>The only data sent without this encryption is the Remokey update for the PC sent from the app: it is the same public file that is included in the app, and the PC accepts it only with the developer's digital signature.</li>
+</ul>
+
+<h2>Optional internet mode</h2>
+<p>If you turn on “Internet access” in the Windows program, traffic travels over HTTPS from your phone to Cloudflare and then through an encrypted tunnel (cloudflared) from Cloudflare to your PC (<a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>). The HTTPS connection ends at Cloudflare, but the content stays encrypted with the device key all the way from the phone to the PC (see above), so Cloudflare cannot read or alter it. Cloudflare can technically see only metadata: when and how much data is transferred and the type of command. To let the phone find the current tunnel address, the PC publishes only that address, signed, to a private channel with a random name on ntfy.sh (<a href="https://ntfy.sh/docs/privacy/">ntfy privacy policy</a>). No personal data is published. Requests over the internet require both the secret access key and the device key. Internet mode is off by default and can be turned off at any time.</p>
+
+<h2>Permissions</h2>
+<ul>
+<li><b>Internet, network and Wi-Fi state</b> — to find and connect to your PC.</li>
+<li><b>Wake lock / Wi-Fi low-latency</b> — to keep the touchpad smooth while it is open.</li>
+<li><b>Vibration</b> — for haptic feedback.</li>
+</ul>
+<p>The app does not request location, contacts, camera, microphone or storage permissions.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes, the new version will be published on this page. Questions: <a href="mailto:gg.di5b.app@gmail.com"><b>gg.di5b.app@gmail.com</b></a></p>
+</section>
+
+<hr>
+
+<section id="uk">
+<h1>Remokey — Політика конфіденційності</h1>
+<p class="muted">Розробник: GG-Di5B · Набуває чинності: 19 листопада 2026</p>
+
+<p>Remokey (застосунок Android <code>com.ggdi5b.remokey</code> і програма для Windows Remokey.exe) дозволяє керувати власним комп'ютером з телефона. Тут пояснено, з якими даними працює застосунок.</p>
+
+<h2>Ми не збираємо ваші дані</h2>
+<p>У застосунку немає акаунтів, аналітики, реклами і відстеження. Розробник не має сервера, який отримує ваші дані, і не збирає, не зберігає, не продає й не передає персональну інформацію.</p>
+
+<h2>Дані, що лишаються між телефоном і вашим ПК</h2>
+<ul>
+<li><b>Налаштування підключення</b> (адреса ПК, порт, ключ пристрою, створений під час підключення, ключ інтернет-доступу, мова і вигляд) зберігаються лише на телефоні. PIN не зберігається. Резервне копіювання даних застосунку вимкнене.</li>
+<li><b>Команди і вміст, які ви надсилаєте</b>: рухи миші і клавіатура, текст, буфер обміну, файли, зображення екрана, зображення з вебкамери ПК, звук ПК, показники системи, «зараз грає». Усе це йде напряму між телефоном і вашим ПК у локальній мережі.</li>
+<li><b>Вебкамера ПК</b>: перегляд вимкнений за замовчуванням і вмикається лише в програмі для Windows на самому ПК. Поки телефон дивиться, на ПК з'являється сповіщення. Зображення з камери не записуються і не зберігаються.</li>
+<li><b>Файли</b>, завантажені з ПК, зберігаються в папці телефона «Download/Remokey». Файли, які ви надсилаєте, зберігаються на ПК.</li>
+</ul>
+
+<h2>Як захищено підключення</h2>
+<ul>
+<li><b>Пара:</b> коли телефон підключається вперше, ПК питає дозволу і показує код, який має збігатися з кодом на телефоні. Ключ пристрою обидва пристрої обчислюють самі (обмін ключами X25519) — ні ключ, ні PIN мережею не передаються. Спарені телефони можна будь-коли відкликати на ПК (Remokey → Пристрої).</li>
+<li><b>Кожен запит</b> підписаний ключем пристрою (HMAC-SHA256) і містить мітку часу та одноразовий номер, тож перехоплений запит не можна підробити чи повторити. Повторні помилки PIN чи підпису блокуються з дедалі довшими паузами.</li>
+<li><b>Увесь трафік зашифровано</b> — і в домашній мережі Wi-Fi, і через інтернет — окремим ключем шифрування, отриманим із ключа пристрою (ChaCha20-Poly1305): команди та їхні параметри, відповіді, зображення екрана, звук ПК, зображення з вебкамери і файли. Файли передаються частинами, кожна зашифрована й пронумерована, тож пошкоджену, підмінену, переставлену чи обрізану передачу буде виявлено. Хтось у тій самій мережі бачить лише те, що телефон обмінюється даними з ПК (адреси, час, обсяг і тип команди), але не вміст.</li>
+<li><b>Файли, надіслані на ПК</b>, додатково перевіряються за контрольною сумою SHA-256, підписаною телефоном; якщо вона не збігається, ПК видаляє файл.</li>
+<li>Без цього шифрування передається лише оновлення Remokey для ПК, яке надсилає застосунок: це той самий публічний файл, що є в застосунку, і ПК приймає його тільки з цифровим підписом розробника.</li>
+</ul>
+
+<h2>Необов'язковий режим «через інтернет»</h2>
+<p>Якщо ви увімкнете «Доступ через інтернет» у програмі для Windows, трафік іде по HTTPS від телефона до Cloudflare, а далі — зашифрованим тунелем (cloudflared) від Cloudflare до вашого ПК (<a href="https://www.cloudflare.com/privacypolicy/">політика Cloudflare</a>). З'єднання HTTPS закінчується в Cloudflare, але вміст лишається зашифрованим ключем пристрою на всьому шляху від телефона до ПК (див. вище), тож Cloudflare не може його прочитати чи змінити. Технічно Cloudflare бачить лише службові відомості: коли і скільки даних передається та тип команди. Щоб телефон знайшов поточну адресу тунелю, ПК публікує лише цю адресу, з підписом, у приватний канал із випадковою назвою на ntfy.sh (<a href="https://ntfy.sh/docs/privacy/">політика ntfy</a>). Персональні дані не публікуються. Запити через інтернет вимагають і секретний ключ доступу, і ключ пристрою. Режим вимкнено за замовчуванням, його можна вимкнути будь-коли.</p>
+
+<h2>Дозволи</h2>
+<ul>
+<li><b>Інтернет, стан мережі і Wi-Fi</b> — щоб знайти ПК і підключитися до нього.</li>
+<li><b>Блокування сну / Wi-Fi з низькою затримкою</b> — щоб тачпад працював плавно, поки він відкритий.</li>
+<li><b>Вібрація</b> — тактильний відгук.</li>
+</ul>
+<p>Застосунок не запитує доступ до місцезнаходження, контактів, камери, мікрофона чи пам'яті.</p>
+
+<h2>Діти</h2>
+<p>Застосунок не призначений для дітей до 13 років.</p>
+
+<h2>Зміни і контакти</h2>
+<p>Якщо політика зміниться, нова версія з'явиться на цій сторінці. Питання: <a href="mailto:gg.di5b.app@gmail.com"><b>gg.di5b.app@gmail.com</b></a></p>
+</section>
+</body>
+</html>
